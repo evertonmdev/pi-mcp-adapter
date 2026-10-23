@@ -16,9 +16,9 @@ const packageJson = JSON.parse(readFileSync(join(repoRoot, "package.json"), "utf
 };
 
 const hostPeerPackages = {
-  "@earendil-works/pi-ai": { peer: "^0.84.1 || ^0.85.0 || ^0.86.0 || ^0.87.0 || ^0.99.0 || ^1.0.0", dev: "1.0.0", optional: true },
-  "@earendil-works/pi-tui": { peer: "*", dev: "1.0.0", optional: false },
-  "typebox": { peer: "*", dev: "1.3.27", optional: false },
+  "@earendil-works/pi-ai": { peer: "^0.84.1 || ^0.85.0 || ^0.86.0 || ^0.87.0 || ^0.99.0 || ^1.0.0", dev: "1.4.0", optional: true },
+  "@earendil-works/pi-tui": { peer: "*", dev: "1.4.0", optional: false },
+  "typebox": { peer: "*", dev: "1.4.3", optional: false },
 };
 
 describe("package.json files", () => {
@@ -157,8 +157,8 @@ describe("package.json dependency policy", () => {
     }
   });
 
-  it("tests extension APIs against Pi 1.0.0", () => {
-    expect(packageJson.devDependencies?.["@earendil-works/pi-coding-agent"]).toBe("1.0.0");
+  it("tests extension APIs against Pi 1.4.0", () => {
+    expect(packageJson.devDependencies?.["@earendil-works/pi-coding-agent"]).toBe("1.4.0");
   });
 
   it("uses the stable modular SDK v2 client/core packages without the legacy monolithic SDK", () => {

@@ -56,9 +56,9 @@ export interface AuthStorageOptions {
 }
 export declare class OAuthCredentialStoreError extends Error {
     readonly operation: 'read' | 'write' | 'remove';
-    readonly backend?: "encrypted-file" | undefined;
+    readonly backend?: 'encrypted-file' | undefined;
     readonly code = "OAUTH_CREDENTIAL_STORE_UNAVAILABLE";
-    constructor(message: string, operation: 'read' | 'write' | 'remove', cause: unknown, backend?: "encrypted-file" | undefined);
+    constructor(message: string, operation: 'read' | 'write' | 'remove', cause: unknown, backend?: 'encrypted-file' | undefined);
 }
 export type OAuthCredentialStatus = {
     status: 'present';

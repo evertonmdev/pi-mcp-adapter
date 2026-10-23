@@ -10,22 +10,22 @@ export declare const uiStreamModeSchema: z.ZodEnum<{
 }>;
 export type UiStreamMode = z.infer<typeof uiStreamModeSchema>;
 export declare const visualizationStreamPhaseSchema: z.ZodEnum<{
-    shell: "shell";
-    narrative: "narrative";
-    structure: "structure";
     detail: "detail";
+    narrative: "narrative";
     settled: "settled";
+    shell: "shell";
+    structure: "structure";
 }>;
 export type VisualizationStreamPhase = z.infer<typeof visualizationStreamPhaseSchema>;
 export declare const visualizationStreamFrameTypeSchema: z.ZodEnum<{
-    patch: "patch";
     checkpoint: "checkpoint";
     final: "final";
+    patch: "patch";
 }>;
 export type VisualizationStreamFrameType = z.infer<typeof visualizationStreamFrameTypeSchema>;
 export declare const visualizationStreamStatusSchema: z.ZodEnum<{
-    ok: "ok";
     error: "error";
+    ok: "ok";
 }>;
 export type VisualizationStreamStatus = z.infer<typeof visualizationStreamStatusSchema>;
 export declare const uiStreamHostContextSchema: z.ZodObject<{
@@ -42,20 +42,20 @@ export declare const visualizationStreamEnvelopeSchema: z.ZodObject<{
     streamId: z.ZodString;
     sequence: z.ZodNumber;
     frameType: z.ZodEnum<{
-        patch: "patch";
         checkpoint: "checkpoint";
         final: "final";
+        patch: "patch";
     }>;
     phase: z.ZodEnum<{
-        shell: "shell";
-        narrative: "narrative";
-        structure: "structure";
         detail: "detail";
+        narrative: "narrative";
         settled: "settled";
+        shell: "shell";
+        structure: "structure";
     }>;
     status: z.ZodEnum<{
-        ok: "ok";
         error: "error";
+        ok: "ok";
     }>;
     message: z.ZodOptional<z.ZodString>;
     spec: z.ZodOptional<z.ZodRecord<z.ZodString, z.ZodUnknown>>;

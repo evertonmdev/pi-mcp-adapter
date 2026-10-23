@@ -48,10 +48,12 @@ async function withSession(
   options: { settings?: Record<string, unknown>; extend?: (pi: ExtensionAPI) => void } = {},
 ): Promise<void> {
   const originalAgentDir = process.env.PI_CODING_AGENT_DIR;
+  const originalConfigMode = process.env.PI_MCP_CONFIG_MODE;
   const originalArgv = [...process.argv];
   let session: Session | undefined;
   try {
     process.env.PI_CODING_AGENT_DIR = root;
+    process.env.PI_MCP_CONFIG_MODE = "exclusive";
     const cwd = join(root, "project");
     const configPath = join(root, "mcp-adapter.json");
     const { env, ...rest } = server as { env?: Record<string, string> };
@@ -98,6 +100,8 @@ async function withSession(
       process.argv.splice(0, process.argv.length, ...originalArgv);
       if (originalAgentDir === undefined) delete process.env.PI_CODING_AGENT_DIR;
       else process.env.PI_CODING_AGENT_DIR = originalAgentDir;
+      if (originalConfigMode === undefined) delete process.env.PI_MCP_CONFIG_MODE;
+      else process.env.PI_MCP_CONFIG_MODE = originalConfigMode;
     }
   }
 }
